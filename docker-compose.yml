@@ -2,8 +2,7 @@ version: "3.9"
 services:
   backend:
     container_name: library_be
-    build:
-      context: ./backend/
+    image: koushik797/library_backend:latest
     ports:
       - "8085:8085"
     environment:
@@ -14,8 +13,7 @@ services:
       - DB_USER=test # db use
   frontend:
     container_name: library_fe
-    build:
-      context: ./frontend/
+    image: koushik797/library_frontend:latest
     ports:
       - "3000:3000"
     environment:
