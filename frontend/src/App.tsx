@@ -14,7 +14,7 @@ function App() {
 
     const getAllBooks = async () => {
         try {
-            let response = await axios.get("http://192.168.1.5:8085/book");
+            let response = await axios.get(`http://${process.env.REACT_APP_BE_IP_ADDRESS}:8085/book`);
             setBooks(response.data)
         } catch (error) {
             // Handle errors

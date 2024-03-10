@@ -6,6 +6,12 @@ services:
       context: ./backend/
     ports:
       - "8085:8085"
+    environment:
+      - DB=test # database
+      - DB_HOST=192.168.1.5 # db host: please mention ip address
+      - DB_PASS=test # db user password
+      - DB_PORT=5432 # db port
+      - DB_USER=test # db use
     depends_on: 
       - db
   db:
@@ -23,3 +29,5 @@ services:
       context: ./frontend/
     ports:
       - "3000:3000"
+    environment:
+      - REACT_APP_BE_IP_ADDRESS=192.168.1.5
