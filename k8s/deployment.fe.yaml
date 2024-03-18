@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: library-fe
+  labels:
+    library: fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      library: fe
+  template:
+    metadata:
+      name: library-fe
+      labels:
+        library: fe
+    spec:
+      containers:
+        - image: koushik797/library_frontend:latest
+          name: library-fe
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REACT_APP_BE_IP_ADDRESS
+              value: 192.168.1.22 # this your machine's ip address, please change according to yours
+

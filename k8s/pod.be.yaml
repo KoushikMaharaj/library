@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: library-be
+  labels:
+    library: be
+spec:
+  containers:
+    - image: koushik797/library_backend:latest
+      name: library-be
+      ports:
+        - containerPort: 8085
+      env:
+        - name: DB_HOST
+          value: 10.96.83.63 # this is your postgresql's service clusture IP, Make sure to change it with yours
+        - name: DB
+          value: test
+        - name: DB_USER
+          value: test
+        - name: DB_PASS
+          value: test
+        - name: DB_PORT
+          value: 5432

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: library-fe
+  labels:
+    library: fe
+spec:
+  containers:
+    - image: koushik797/library_frontend:latest
+      name: library-fe
+      ports:
+        - containerPort: 3000
+      env:
+        - name: REACT_APP_BE_IP_ADDRESS
+          value: localhost
